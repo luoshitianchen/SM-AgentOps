@@ -22,7 +22,7 @@ from pydantic import BaseModel, Field
 VERSION = "2.1.0"
 SERVICE_NAME = "sm-agentops"
 DISPLAY_NAME = "SM AgentOps"
-DESCRIPTION = "企业 AI Agent 管理平台：Agent 编排、Prompt 管理、工具权限、调用审计与成本统计"
+DESCRIPTION = "智能体运营与编排平台：Agent 生命周期、任务、成本与治理"
 ENVIRONMENT = os.getenv("SM_ENV", "development").lower()
 ALLOWED_HOSTS = [h.strip() for h in os.getenv("SM_ALLOWED_HOSTS", "localhost,127.0.0.1,testserver").split(",") if h.strip()]
 REQUESTS = {"total": 0, "errors": 0, "latency_ms_total": 0.0}
@@ -38,7 +38,7 @@ AUDIT_CENTER_URL = os.getenv("SM_AUDIT_CENTER_URL", "")
 INTEGRATION_DEPENDENCIES = ['sm-iam', 'sm-audit-log-center']
 INTEGRATION_EVENTS = ["health.checked", "resource.changed", "audit.recorded"]
 _db_conn: sqlite3.Connection | None = None
-_db_lock = threading.Lock()
+_db_lock = threading.RLock()
 
 
 def db() -> sqlite3.Connection:
