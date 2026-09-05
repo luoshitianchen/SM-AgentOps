@@ -14,7 +14,7 @@ from pydantic import BaseModel, Field
 from app import base
 
 SERVICE = "sm-agentops"
-VERSION = "2.0.0"
+VERSION = "3.0.0"
 NAME = "SM AgentOps"
 DESCRIPTION = "AI Agent 运维平台：智能体注册、运行监控、指标与告警"
 PORT = 8390
