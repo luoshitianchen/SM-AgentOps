@@ -116,8 +116,8 @@ def _set_agent_status(agent_id: str, status_: str) -> dict[str, Any]:
 def execute_run(payload: RunIn, request: Request) -> dict[str, Any]:
     base.require_internal_token(request)
     run_id = str(uuid.uuid4())
-    tokens = random.randint(100, 5000)
-    latency = round(random.uniform(200, 3000), 2)
+    tokens = random.randint(100, 5000)  # nosec B311  # random仅用于模拟/测试数据，非安全场景
+    latency = round(random.uniform(200, 3000), 2)  # nosec B311  # random仅用于模拟/测试数据，非安全场景
     with base.db_ctx() as conn:
         agent = conn.execute("SELECT * FROM agents WHERE id=?", (payload.agent_id,)).fetchone()
         if not agent:
