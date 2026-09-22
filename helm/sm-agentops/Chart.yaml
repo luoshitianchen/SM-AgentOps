@@ -1,0 +1,12 @@
+apiVersion: v2
+name: sm-agentops
+description: SM 微服务 Helm Chart - SM-AgentOps（Agent 运维服务）
+type: application
+version: 1.0.0
+appVersion: "2.1.0"
+keywords:
+  - sm-microservices
+  - enterprise
+  - sm-agentops
+maintainers:
+  - name: sm-platform-team
